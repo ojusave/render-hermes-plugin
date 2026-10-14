@@ -1,0 +1,94 @@
+{
+  "schema": 1,
+  "date": "2026-10-14",
+  "package_version": "0.1.0",
+  "platform_tested": "macOS arm64",
+  "hermes": {
+    "checkout": "126dff924a3ef32dcba63b3db64624aa36ca56e0",
+    "upstream_base": "5575a0859d6278bfcef79c28189a24594952efd3",
+    "python": "3.14.3",
+    "mcp_sdk": "2.0.0"
+  },
+  "source": {
+    "repo": "https://github.com/render-oss/skills",
+    "commit": "8675173fe30232384d51c8763d1eea4db0350419",
+    "skills": 20,
+    "files": 127,
+    "comparison": "All included bytes compared with git show at the recorded official source commit",
+    "result": "passed"
+  },
+  "local_install": {
+    "disable_enable_list_show": "passed",
+    "parser_diagnostics": 0,
+    "portable_skills": 20
+  },
+  "live": {
+    "scope": "Real Hermes interactive chat loaded the packaged render-mcp skill and listed workspaces through packaged mcp.json",
+    "result": "passed",
+    "workspace_count": 16,
+    "independent_verification": "Parsed saved MCP response as a nonempty list with workspace IDs and names",
+    "approval": "Allow once for list_workspaces; no approval bypass or permanent allowlist",
+    "mutations": 0,
+    "temporary_credentials_removed": true,
+    "test_gateway_stopped": true
+  },
+  "unattended": {
+    "result": "passed",
+    "expected": "The untrusted server call must be denied when nobody can approve it",
+    "observed": "list_workspaces returned is_error=true and was not run; server does not supply readOnlyHint=true"
+  },
+  "upstream_tests": {
+    "passed": 139,
+    "failed": 1,
+    "trust_gating_passed": 20,
+    "failure": "tests/hermes_cli/test_plugin_validate.py::test_portable_validation_fails_orphan_and_reports_availability",
+    "detail": "Unmodified upstream fixture expects an exact availability state; validator appends a candidate path on this macOS host. Render package has no application-presence requirement."
+  },
+  "limitations": [
+    "No deployment or resource-changing operations were exercised.",
+    "Linux and Windows were not exercised.",
+    "GitHub installation is pending the first publish.",
+    "Catalog inclusion requires Nous Research maintainer review.",
+    "render-docker is omitted because a Dockerfile cleanup example triggers a critical catalog scanner rule; original source was not rewritten."
+  ],
+  "earlier_attempts": [
+    "Initial isolated gateway runtime lacked the MCP extra; resolved using Hermes package manager.",
+    "An unattended agent completed its turn but the tool was denied; completion was not counted as a successful connection.",
+    "An approval test run used an environment without MCP; rerun with declared MCP and dev/test dependencies."
+  ],
+  "package_validation": {
+    "ok": true,
+    "checks": [
+      {
+        "name": "portable manifest",
+        "ok": true,
+        "detail": "plugin.json parses (Agent Plugins v1)"
+      },
+      {
+        "name": "manifest fields",
+        "ok": true,
+        "detail": "name present"
+      },
+      {
+        "name": "server trust: render",
+        "ok": true,
+        "detail": "untrusted (Hermes asks before every write-capable tool call)"
+      },
+      {
+        "name": "security scan",
+        "ok": true,
+        "detail": "caution"
+      }
+    ],
+    "warnings": [
+      "security scan caution: bind_all_interfaces (SKILL.md:48), bind_all_interfaces (error-patterns.md:91), bind_all_interfaces (error-patterns.md:93), bind_all_interfaces (log-analysis.md:249), bind_all_interfaces (log-analysis.md:424), python_os_environ (configuration-guide.md:247), python_os_environ (configuration-guide.md:256), python_os_environ (connection-examples.md:45), python_os_environ (connection-examples.md:57), python_os_environ (error-patterns.md:44), python_os_environ (queue-framework-setup.md:46), python_os_environ (troubleshooting.md:217), python_os_environ (troubleshooting.md:240), sudo_usage (SKILL.md:78)"
+    ],
+    "isolation": {
+      "verdict": "portable",
+      "host_ready": true,
+      "reasons": [],
+      "notes": [],
+      "ctx_methods": []
+    }
+  }
+}

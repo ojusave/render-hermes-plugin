@@ -1,0 +1,30 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "render-platform",
+  "version": "0.1.0",
+  "description": "Use Render skills and tools to deploy, debug, and manage applications.",
+  "author": {
+    "name": "Ojus Save",
+    "url": "https://github.com/ojusave"
+  },
+  "homepage": "https://github.com/ojusave/render-hermes-plugin",
+  "repository": "https://github.com/ojusave/render-hermes-plugin",
+  "license": "MIT",
+  "keywords": [
+    "render",
+    "deployment",
+    "debugging",
+    "monitoring",
+    "skills",
+    "mcp"
+  ],
+  "extensions": {
+    "com.nousresearch.hermes": {
+      "servers": {
+        "render": {
+          "trust": "untrusted"
+        }
+      }
+    }
+  }
+}
