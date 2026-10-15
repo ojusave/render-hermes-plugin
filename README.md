@@ -137,6 +137,12 @@ Run `hermes config env-path` and confirm that you edited the active profile's fi
 
 A `render` entry under `mcp_servers` in your Hermes configuration overrides this plugin's connection. Keep it if it is intentional. If you want the plugin to own the connection, back up that entry and run `hermes mcp remove render`, then restart Hermes. The package's connection and approval setting apply once the override is removed.
 
+### CLI reports a different workspace
+
+MCP and the Render CLI keep separate workspace selections. If a CLI command reports that a service belongs to another workspace, run `render workspace current --output json` in the terminal on the machine running Hermes. Compare that workspace with the one you selected in chat.
+
+Use `render workspace set YOUR_WORKSPACE_ID` to select the intended workspace, replacing `YOUR_WORKSPACE_ID` with the ID returned by Render's workspace list. Run `render workspace current --output json` again to verify the selection before retrying. If this is a temporary test, restore your previous selection afterward. See the [CLI workspace instructions](https://render.com/docs/cli#common-commands).
+
 ### Blueprint validation is unavailable
 
 Install the Render CLI using its [official instructions](https://render.com/docs/cli), authenticate with `render login`, and check `render --version`. A working MCP connection does not install or authenticate the CLI.
