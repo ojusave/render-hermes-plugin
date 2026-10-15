@@ -59,7 +59,7 @@ hermes plugins list
 hermes plugins show render-platform
 ```
 
-The plugin should show as enabled. Start a new Hermes chat so it discovers the added skills and tools, then use the read-only prompt below to verify the connection.
+The plugin should show as enabled. Start a new Hermes chat so it discovers the added skills and tools, then use the read-only prompt below to verify the connection. If you use Hermes through its messaging gateway, restart it with `hermes gateway restart` after changing plugins or credentials.
 
 Hermes asks for approval when the Render server does not explicitly mark a tool as read-only. This currently includes the workspace listing. Review the requested tool and choose **Allow once** for that check. Unattended runs reject calls that need approval. Your account permissions still apply.
 
@@ -152,7 +152,7 @@ Restart Hermes afterward. Removal takes away the package's skills and connection
 
 ## Maintainers
 
-The source record and package checks live in [upstream.json](upstream.json), [scripts/verify_package.py](scripts/verify_package.py) and [validation/results.json](validation/results.json). The checks and tested runtime are recorded there rather than in the user setup steps.
+The source record and package checks live in [upstream.json](upstream.json), [scripts/verify_package.py](scripts/verify_package.py) and [validation/results.json](validation/results.json).
 
 Update skill files from a reviewed commit of `render-oss/skills`, preserve their contents and license, update the source record, and validate the resulting package. A catalog update requires a new PR with the full commit identifier so Nous can review the exact version.
 

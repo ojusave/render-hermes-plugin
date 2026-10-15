@@ -47,7 +47,6 @@
   "limitations": [
     "No deployment or resource-changing operations were exercised.",
     "Linux and Windows were not exercised.",
-    "GitHub installation is pending the first publish.",
     "Catalog inclusion requires Nous Research maintainer review.",
     "render-docker is omitted because a Dockerfile cleanup example triggers a critical catalog scanner rule; original source was not rewritten."
   ],
@@ -90,5 +89,42 @@
       "notes": [],
       "ctx_methods": []
     }
+  },
+  "github_install": {
+    "result": "passed",
+    "commit": "81b605532c8f0b2ae9d4e97dca277a52c2b5abff",
+    "installer": "hermes plugins install ojusave/render-hermes-plugin --ref 81b605532c8f0b2ae9d4e97dca277a52c2b5abff --no-enable",
+    "scanner": "CAUTION, 45 findings reviewed at the normal interactive installer prompt; no force flag",
+    "enabled_skills": 20,
+    "source_files_matched": 127,
+    "live_workspace_count": 16,
+    "approval": "Allow once for list_workspaces",
+    "independent_verification": "Parsed the saved tool response, not the assistant success message",
+    "temporary_credentials_removed": true,
+    "gateway_stopped": true
+  },
+  "lifecycle": {
+    "result": "passed",
+    "enabled": {
+      "skills": 20,
+      "mcp_servers": [
+        "render"
+      ]
+    },
+    "disabled": {
+      "skills": 0,
+      "mcp_servers": []
+    },
+    "removed": "Installed test package directory no longer exists"
+  },
+  "visual_review": {
+    "local": "GitHub Markdown rendering inspected at desktop and 390px content width; diagram changed to a vertical layout for readability",
+    "published": "GitHub README inspected after publication"
+  },
+  "release_note": "GitHub installation and live checks used the recorded commit. Later release changes affect only README instructions and this receipt; plugin.json, mcp.json and all skill files are unchanged.",
+  "runtime_files_sha256": {
+    "plugin.json": "136078e16f38c894688d7af4f080533cb8dc744ecfec38801980313c1e24beeb",
+    "mcp.json": "c278afc1e20bde8a20e95d976127d2d4dae6e7a3cbbb056b6b28559e61aece9a",
+    "upstream.json": "be400eef8f1d144350d5e88155700769064caef46b3367915da02b44cea7bc9d"
   }
 }
